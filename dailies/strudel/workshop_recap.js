@@ -93,3 +93,47 @@
 
 /* range */
 // $: s("hh*32").lpf(saw.range(200,4000))
+
+
+//setcpm(00)
+//$: sound("[bd*2 sd]")
+//  .bank("RolandTR909")
+//  .lpf("800")
+//
+//$: note("<a3 c4> c5")
+//  .scale("D:dorian")
+//  .sound("gm_xylophone")
+//  .room(0.4)
+//  .delay(0.2)
+//
+//$: note("[b3*2 a3 c3 c5]/4")
+//  .scale("A2:minor")
+//  .sound("triangle")
+  //.vowel("< <a e> <e i> [e a] [o e] [i a]>")
+
+/*******************/
+/* Pattern Effects */
+/*******************/
+
+// setcpm: Set the tempo in cycles per minute
+setcpm(45);
+$: sound("bd lt*2").bank("doepferms404").lpf(900)
+$: note("c3 c4").sound("sine").gain(1)
+$: note("<c1 c2*2> <<b2 b3> <a2 a3> < d2 d3>>")
+  //.scale("C:minor D:minor")
+  //.rev()
+  .fast(2)
+  //.sound("square")
+  .sound("triangle")
+  //.jux(rev)
+  .ply("<1 6 3>")
+  .off(1/4, x=>x.slow(2))
+  .lpf(8000)
+
+// fast: speed it up
+// slow: slow down
+// rev: reverse
+// jux: split left/right modify right
+// add: add numbers/notes
+// ply: speed up each event n times
+// off: copy, shift time & modify
